@@ -38,7 +38,7 @@ If you're interested in contributing to Prediction Engine, feel free to fork the
 
 ## Credits
 
-Prediction Engine was created by [ThatSINEWAVE](https://github.com/ThatSINEWAVE). Special thanks to the following APIs used in this project:
+Special thanks to the following APIs used in this project:
 - [Genderize](https://genderize.io/)
 - [Agify](https://agify.io/)
 - [Nationalize](https://nationalize.io/)
