@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputSection = document.getElementById('input-section');
     const resultSection = document.getElementById('result-section');
     const resultSentence = document.getElementById('result-sentence');
+    const themeToggle = document.getElementById('theme-toggle');
 
     const countryCodes = {
         "AF": "Afghanistan",
@@ -306,4 +307,27 @@ document.addEventListener('DOMContentLoaded', () => {
             callback();
         }, 500);
     }
+
+    function applyTheme(theme) {
+        document.body.classList.toggle('dark', theme === 'dark');
+        // Set the theme toggle state
+        themeToggle.checked = theme === 'dark';
+    }
+
+    function saveTheme(theme) {
+        localStorage.setItem('theme', theme);
+    }
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+    }
+
+    themeToggle.addEventListener('change', () => {
+        const theme = themeToggle.checked ? 'dark' : 'light';
+        applyTheme(theme);
+        saveTheme(theme);
+    });
+
+    loadTheme(); // Load the theme when the page loads
 });
