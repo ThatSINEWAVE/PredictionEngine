@@ -6,6 +6,8 @@ Welcome to Prediction Engine! This is a web application hosted on GitHub Pages t
 Prediction Engine is a fun and interactive project that predicts your gender, age, and nationality based on your name. 
 It utilizes external APIs to provide humorous and light-hearted predictions about your demographic information.
 
+![PredictionEngine](https://github.com/ThatSINEWAVE/PredictionEngine/assets/133239148/dd46b40f-bb3f-40da-aa96-59d3c5c361db)
+
 </div>
 
 ## How to Use
