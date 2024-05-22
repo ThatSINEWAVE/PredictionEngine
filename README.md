@@ -1,19 +1,19 @@
 <div align="center">
 
-# [Jokes4U](https://thatsinewave.github.io/Jokes4U)
+# [Prediction Engine](https://thatsinewave.github.io/PredictionEngine)
 
-Welcome to Jokes4U! 
-This is a simple web application hosted on GitHub Pages where you can get funny predictions based on your name.
-Jokes4U is a fun project that utilizes various APIs to predict your gender, age, and nationality based on your name. 
-It provides light-hearted and humorous guesses about your demographic information.
+Welcome to Prediction Engine! This is a web application hosted on GitHub Pages that provides predictions based on your name.
+Prediction Engine is a fun and interactive project that predicts your gender, age, and nationality based on your name. 
+It utilizes external APIs to provide humorous and light-hearted predictions about your demographic information.
 
 </div>
 
 ## How to Use
 
-1. Enter your name in the input field provided.
-2. Click on the "Predict" button.
-3. Enjoy the funny prediction provided based on your name!
+1. Open the [website](https://thatsinewave.github.io/PredictionEngine).
+2. Enter your name in the input field provided.
+3. Click on the "Predict" button.
+4. Enjoy the funny prediction provided based on your name!
 
 If you want to try again with a different name, simply click on the "Try Again" button.
 
@@ -32,11 +32,11 @@ If you want to try again with a different name, simply click on the "Try Again" 
 
 ## How to Contribute
 
-If you're interested in contributing to Jokes4U, feel free to fork the repository, make your changes, and submit a pull request. Contributions in the form of bug fixes, feature enhancements, or UI improvements are always welcome!
+If you're interested in contributing to Prediction Engine, feel free to fork the repository, make your changes, and submit a pull request. Contributions in the form of bug fixes, feature enhancements, or UI improvements are always welcome!
 
 ## Credits
 
-Special thanks to the following APIs used in this project:
+Prediction Engine was created by [ThatSINEWAVE](https://github.com/ThatSINEWAVE). Special thanks to the following APIs used in this project:
 - [Genderize](https://genderize.io/)
 - [Agify](https://agify.io/)
 - [Nationalize](https://nationalize.io/)
