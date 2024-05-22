@@ -167,3 +167,14 @@ footer a {
 body.dark footer a {
 	color: white;
 }
+
+.icon {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0px;
+}
+
+.icon img {
+	max-width: 150px;
+	height: auto;
+}
