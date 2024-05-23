@@ -25,10 +25,11 @@
       </div>
       <h1>Prediction Engine</h1>
       <div id="input-section">
+        <label for="name-input">Enter your name:</label>
         <input type="text" id="name-input" placeholder="Enter your name">
         <button id="predict-button">Predict</button>
       </div>
-      <div id="result-section" class="hidden">
+      <div id="result-section" class="hidden" aria-live="polite">
         <p id="result-sentence"></p>
         <button id="try-again-button">Try Again</button>
       </div>
