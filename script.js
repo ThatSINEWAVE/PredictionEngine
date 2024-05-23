@@ -272,21 +272,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function fetchPredictions(name) {
-        const genderPromise = fetch(`https://api.genderize.io?name=${name}`).then(response => response.json());
-        const agePromise = fetch(`https://api.agify.io?name=${name}`).then(response => response.json());
-        const nationalityPromise = fetch(`https://api.nationalize.io?name=${name}`).then(response => response.json());
+        try {
+            const [genderData, ageData, nationalityData] = await Promise.all([
+                fetch(`https://api.genderize.io?name=${name}`).then(response => response.json()),
+                fetch(`https://api.agify.io?name=${name}`).then(response => response.json()),
+                fetch(`https://api.nationalize.io?name=${name}`).then(response => response.json())
+            ]);
 
-        const [genderData, ageData, nationalityData] = await Promise.all([genderPromise, agePromise, nationalityPromise]);
-
-        const gender = genderData.gender;
-        const genderProb = (genderData.probability * 100).toFixed(2) + '%';
-        const age = ageData.age;
-        const ageCount = ageData.count;
-        const countryCode = nationalityData.country[0]?.country_id || 'Unknown';
-        const nationality = countryCodes[countryCode] || 'Unknown';
-        const nationalityProb = nationalityData.country[0] ? (nationalityData.country[0].probability * 100).toFixed(2) + '%' : 'N/A';
+            const gender = genderData.gender;
+            const genderProb = (genderData.probability * 100).toFixed(2) + '%';
+            const age = ageData.age;
+            const ageCount = ageData.count;
+            const countryCode = nationalityData.country[0]?.country_id || 'Unknown';
+            const nationality = countryCodes[countryCode] || 'Unknown';
+            const nationalityProb = nationalityData.country[0] ? (nationalityData.country[0].probability * 100).toFixed(2) + '%' : 'N/A';
 
         displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb);
+        } catch (error) {
+            console.error('Error fetching predictions:', error);
+        }
     }
 
     function displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb) {
