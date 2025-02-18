@@ -143,6 +143,18 @@ body.dark input[type="text"] {
 	color: white;
 }
 
+body.dark ul {
+	background-color: #444;
+	border: 2px solid #666;
+	color: white;
+}
+body.dark ul li {
+	color: white;
+}
+body.dark #famous-personalities-sentence {
+	color: white;
+}
+
 header {
 	position: fixed;
 	top: 0;
@@ -183,4 +195,27 @@ body.dark footer a {
 .icon img {
 	max-width: 150px;
 	height: auto;
+}
+
+#famous-personalities-sentence {
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.famous-list {
+    list-style-type: none;
+    padding:0px;
+	margin: 0px ;
+}
+
+.famous-list li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #555;
+}
+
+.famous-list li:hover {
+    color: #007BFF;
+    cursor: pointer;
 }
