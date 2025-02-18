@@ -36,6 +36,10 @@ If you want to try again with a different name, simply click on the "Try Again" 
 
 If you're interested in contributing to Prediction Engine, feel free to fork the repository, make your changes, and submit a pull request. Contributions in the form of bug fixes, feature enhancements, or UI improvements are always welcome!
 
+Contributors:
+- Thanks to [TaylorPhelps](https://github.com/TaylorPhelps) for improving the overall UI! [Pull Request Here](https://github.com/ThatSINEWAVE/PredictionEngine/pull/2)
+- Thanks to [aadhityaalagappan](https://github.com/aadhityaalagappan) for adding HistoricalFigures API! [Pull Request Here](https://github.com/ThatSINEWAVE/PredictionEngine/pull/3)
+
 ## Credits
 
 Special thanks to the following APIs used in this project:
