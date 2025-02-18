@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputSection = document.getElementById('input-section');
     const resultSection = document.getElementById('result-section');
     const resultSentence = document.getElementById('result-sentence');
+    const famous_personalities = document.getElementById('famous-personalities-sentence');
     const themeToggle = document.getElementById('theme-toggle');
 
     const countryCodes = {
@@ -273,10 +274,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchPredictions(name) {
         try {
-            const [genderData, ageData, nationalityData] = await Promise.all([
+            const [genderData, ageData, nationalityData,celebs] = await Promise.all([
                 fetch(`https://api.genderize.io?name=${name}`).then(response => response.json()),
                 fetch(`https://api.agify.io?name=${name}`).then(response => response.json()),
-                fetch(`https://api.nationalize.io?name=${name}`).then(response => response.json())
+                fetch(`https://api.nationalize.io?name=${name}`).then(response => response.json()),
+                fetch(`https://api.api-ninjas.com/v1/historicalfigures?name=${name}`, {headers: {'X-Api-Key':'5fEKy/4iO6q+a3r9g9y05g==7pAoJR6AZ2jmo4mW'} }).then(response => response.json()),
             ]);
 
             const gender = genderData.gender;
@@ -286,15 +288,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const countryCode = nationalityData.country[0]?.country_id || 'Unknown';
             const nationality = countryCodes[countryCode] || 'Unknown';
             const nationalityProb = nationalityData.country[0] ? (nationalityData.country[0].probability * 100).toFixed(2) + '%' : 'N/A';
-
-        displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb);
+            let celebrityNames = celebs.length > 0 
+            ? celebs.map(celeb => `<li>${celeb.name} (${celeb.title})</li>`).join('') 
+            : '<li>No famous personalities found.</li>';
+        displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb, celebrityNames);
         } catch (error) {
             console.error('Error fetching predictions:', error);
         }
     }
 
-    function displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb) {
+    function displayResults(name, gender, genderProb, age, ageCount, nationality, nationalityProb, celebrityNames) {
         resultSentence.innerHTML = `Hello ${name}, based on ${ageCount} occurrences, I'm guessing that you are about ${age} years old. There are ${genderProb} chances that you are a ${gender}, and about ${nationalityProb} chances you live in ${nationality}.`;
+        if (!celebrityNames || celebrityNames.length === 0) {
+            famous_personalities.innerHTML = `<p>We couldn't find any famous personalities with the same name.</p>`;
+        } else {
+            famous_personalities.innerHTML = `
+                <p>Famous Personalities with the same name:</p>
+                <ul class="famous-list">
+                     ${celebrityNames}
+                </ul>
+            `;
+        }
+
 
         fadeOut(inputSection, () => {
             inputSection.classList.add('hidden');
