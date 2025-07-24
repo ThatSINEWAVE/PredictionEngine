@@ -49,7 +49,7 @@ Special thanks to the following APIs used in this project:
 
 <div align="center">
 
-## [Join my discord server](https://discord.gg/2nHHHBWNDw)
+## [Join my discord server](https://thatsinewave.github.io/Discord-Redirect/)
 
 </div>
 
